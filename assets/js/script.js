@@ -52,9 +52,34 @@ var ledges = [
     y: 350,
     width: 80,
     height: 20
+
+  }, {
+    x: 200,
+    y: 300,
+    width: 80,
+    height: 20
+  }, {
+    x: 300,
+    y: 250,
+    width: 80,
+    height: 20
+  }, {
+    x: 400,
+    y: 250,
+    width: 80,
+    height: 20
+  }, {
+    x: 500,
+    y: 300,
+    width: 80,
+    height: 20
+  }, {
+    x: 600,
+    y: 350,
+    width: 80,
+    height: 20
   }
 ];
-
 // World variables
 var friction = 0.8;
 var gravity = 0.35;
@@ -67,10 +92,10 @@ function main(){
 
   // Update player object
   handlePlayerMovement();
-  
+
   // Update Goomba object
   handleEnemyMovement()
-  
+
   // Detect collisions with ledges and enemies
   colDetect();
 
@@ -90,13 +115,13 @@ function handleInput() {
         player.velY = -player.speed * 2.2;
       }
   }
-  
+
   if (keys[39]) {
     // Right arrow key
     player.velX = player.speed;
-  } 
+  }
 
-  if (keys[37]) { 
+  if (keys[37]) {
   // Left arrow key
     player.velX = -player.speed;
   }
@@ -116,9 +141,9 @@ function handlePlayerMovement() {
   // Detect wall collision
   if (player.x >= c.width-player.width) {
     player.x = c.width-player.width;
-  } else if (player.x <= 0) { 
-    player.x = 0; 
-  }  
+  } else if (player.x <= 0) {
+    player.x = 0;
+  } 
 
   // Detect ground collision
   if (player.y >= c.height-player.height-groundHeight) {
@@ -146,16 +171,16 @@ function handleEnemyMovement() {
   // Detect wall collision
   if (enemy.x >= c.width-enemy.width) {
     enemy.velX = -enemy.speed;
-  } else if (enemy.x <= 0) { 
-    enemy.velX = enemy.speed; 
-  }  
+  } else if (enemy.x <= 0) {
+    enemy.velX = enemy.speed;
+  } 
 
   // Detect ground collision
   if (enemy.y >= c.height-enemy.height-groundHeight) {
     if (enemy.alive) {
       enemy.y = c.height - enemy.height-groundHeight;
       enemy.jumping = false;
-    } 
+    }
   }
 }
 
@@ -205,7 +230,7 @@ function colDetect() {
       enemy.velY *= -1;
     }
   }
-  
+
   if(enemy.grounded){
     enemy.velY = 0;
   }
