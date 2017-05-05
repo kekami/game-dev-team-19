@@ -15,6 +15,11 @@ marioSprite.src = 'assets/img/mario.png';
 var enemySprite = new Image();
 enemySprite.src = 'https://media1.giphy.com/media/HczKUqh2qtA2Y/giphy.gif';
 
+// load coin sprite
+var coinSprite = new Image();
+coinSprite.src = 'assets/img/coin.png';
+
+
 // Create player object
 var player = {
   width : 48,
@@ -263,6 +268,9 @@ function reDrawCanvas() {
   // Draw player
   ctx.drawImage(marioSprite, player.x, player.y, player.width, player.height);
   ctx.drawImage(enemySprite, enemy.x, enemy.y, enemy.width, enemy.height);
+  ctx.drawImage(coinSprite, 380, 100, 40, 30);
+  ctx.drawImage(coinSprite, 460, 100, 40, 30);
+  ctx.drawImage(coinSprite, 300, 100, 40, 30);
 }
 
 function checkGameStatus() {
